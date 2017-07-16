@@ -11,6 +11,7 @@ MONGO_DB_DUMP_FOLD = DATA_FOLD + u'mongodb/'
 
 # wechat
 WECHAT_ROOM_LIST = [u'测试群']
+WECHAT_QR_PATH = DATA_FOLD + u'/QR.png'
 
 # mongodb
 GOODS_XLS_FILE = DATA_FOLD + u'17-18年财务年销售政策及任务.xls'

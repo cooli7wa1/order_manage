@@ -223,7 +223,7 @@ def recSingleMsg(msg):
     return
 
 def wechatMain():
-    itchat.auto_login(hotReload=True)
+    itchat.auto_login(picDir=WECHAT_QR_PATH, hotReload=True)
     time.sleep(1)
     Room().initRoom()
     itchat.run()
