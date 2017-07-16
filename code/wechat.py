@@ -1,5 +1,5 @@
 #coding:utf8
-import itchat, threading, re, json
+import itchat, threading, re, json, random
 from config import *
 from db import Good, Record
 import helpers
@@ -25,6 +25,7 @@ class Room:
 
 class SendMsg:
 
+    send_lock = threading.Lock()
     def formatMsg(self, type, title, msg_ori):
         logging.debug(u'==== 开始 ====')
         msg = u''
@@ -56,7 +57,11 @@ class SendMsg:
         return msg
 
     def sendMsg(self, msg, to):
+        delay = [1.5,1.6,1.7,1.8,1.9,2.0]
+        SendMsg.send_lock.acquire()
+        time.sleep(random.choice(delay))
         itchat.send('@msg@%s' % msg, to)
+        SendMsg.send_lock.release()
 
 class DealMsg:
 
