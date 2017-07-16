@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROBOT_DATA_PATH=$HOME/Documents/order_manager_data/
+ROBOT_DATA_PATH=$HOME/Documents/order_manage_data/
 MONGODB_BACKUP_PATH=$ROBOT_DATA_PATH/mongodb
 
 echo -e "\033[31m 下载 \033[0m"
