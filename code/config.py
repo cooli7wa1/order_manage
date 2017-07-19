@@ -1,5 +1,5 @@
 #coding:utf8
-import os, logging, time
+import os
 
 BASE_PATH = os.popen('echo $HOME').read().replace('\n','') + u'/Documents/'
 DATA_FOLD = BASE_PATH + u'order_manage_data/'
@@ -28,17 +28,3 @@ ERROR_NO_GOOD_RECORD = -2
 ERROR_GOOD_ID_NOT_EXIST = -3
 ERROR_OLD_NAME_WRONG = -4
 ERROR_NEW_NAME_EXIST = -5
-
-# LOG
-LOG_FOLD = DATA_FOLD + u'log/'
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s %(funcName)s[line:%(lineno)d] %(levelname)s %(message)s',
-                    datefmt='%a %d %b %Y %H:%M:%S',
-                    filename='%s%s.log' % (LOG_FOLD, time.strftime('%Y-%m-%d-%H%M%S', time.localtime())),
-                    filemode='w')
-
-console = logging.StreamHandler()
-console.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s %(funcName)s[line:%(lineno)d] %(levelname)s %(message)s')
-console.setFormatter(formatter)
-logging.getLogger('').addHandler(console)

@@ -3,7 +3,7 @@ import xlrd
 from config import *
 __metaclass__ = type
 
-class xls:
+class XLS:
     def __init__(self, file_name, sheet_name, f_points=1, f_title=()):
         '''
         :param file_name: xls file name

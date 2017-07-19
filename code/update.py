@@ -1,6 +1,7 @@
 #coding:utf8
-import threading
+import threading, logging, time
 from config import *
+__metaclass__ = type
 
 class Git:
 

@@ -1,6 +1,6 @@
 #coding:utf8
-import pymongo, xlrd, json, time
-from xls import xls
+import pymongo, json, time
+from xls import XLS
 from config import *
 __metaclass__ = type
 
@@ -71,7 +71,7 @@ class Good(MongoDB):
 
     def updateGoods(self):
         self.db.drop_collection(MONGO_TABLE_GOODS)
-        for row_dict in xls(GOODS_XLS_FILE, GOODS_XLS_SHEET_NAME, f_title=GOODS_XLS_PRICE_TITLE).getRowDict():
+        for row_dict in XLS(GOODS_XLS_FILE, GOODS_XLS_SHEET_NAME, f_title=GOODS_XLS_PRICE_TITLE).getRowDict():
             # print(json.dumps(row_dict, ensure_ascii=False, encoding='utf8'))
             self.table.insert_one(row_dict)
 

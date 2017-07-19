@@ -1,5 +1,5 @@
 #coding:utf8
-import itchat, threading, re, json, random
+import itchat, threading, re, json, random, logging, time
 from config import *
 from db import Good, Record
 import helpers
@@ -57,9 +57,9 @@ class SendMsg:
         return msg
 
     def sendMsg(self, msg, to):
-        delay = [1.5,1.6,1.7,1.8,1.9,2.0]
+        delay = random.uniform(1.5,2.0)
         SendMsg.send_lock.acquire()
-        time.sleep(random.choice(delay))
+        time.sleep(delay)
         itchat.send('@msg@%s' % msg, to)
         SendMsg.send_lock.release()
 
